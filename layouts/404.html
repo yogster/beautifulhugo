@@ -2,9 +2,8 @@
 {{ define "main" }}
   <div role="main" class="container main-content">
     <div class="text-center">
-      <h1>{{ i18n "pageNotFound" }}</h1>
-      <br/>
-      <img src="{{ .Site.BaseURL }}/img/404-southpark.jpg" />
+      <h1>Page not found</h1>
+      <p class="main-content">Sorry, this page does not exist! Please <a href="{{ "" | absLangURL }}">Go back to the home page</a></p>
     </div>
   </div>
 {{ end }}
