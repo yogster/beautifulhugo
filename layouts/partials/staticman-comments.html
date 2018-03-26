@@ -6,14 +6,14 @@
     {{ $comments := index $.Site.Data.comments $slug }}
     {{ if $comments }}
       {{ if gt (len $comments) 1  }}
-        <h3>{{ len $comments  }} {{ i18n "moreComment" }}</h3>
+        <h2>{{ len $comments  }} {{ i18n "moreComment" }}</h2>
       {{ else }}
-        <h3>{{ len $comments  }} {{ i18n "oneComment" }}</h3>
+        <h2>{{ len $comments  }} {{ i18n "oneComment" }}</h2>
       {{ end }}
     {{ else }}
-      <h3>{{ i18n "noComment" }}</h3>
+      <h2>{{ i18n "noComment" }}</h2>
     {{ end }}
-
+    
 
     {{ $.Scratch.Set "hasComments" 0 }}
     {{ range $index, $comments := (index $.Site.Data.comments $slug ) }}
@@ -31,9 +31,9 @@
         </article>
       {{ end }}
     {{ end }}
-  {{ end }}
+{{ end }}
 
-
+<h3>Add your comment</h3>
 
 <form class="js-form form" method="post" action="{{ .Site.Params.staticman.api}}">
   <input type="hidden" name="options[slug]" value="{{ replace .URL "/" "" }}">
@@ -45,27 +45,15 @@
   {{ end }}
 
   <fieldset>
-  <div class="textfield">
-    <textarea name="fields[comment]" type="text" placeholder="{{ i18n "useMarkdown" }}"></textarea>
-  </div>
-  </fieldset>
-
-  <fieldset>
     <div class="textfield">
       <input name="fields[name]" type="text" placeholder="{{ i18n "yourName" }}"/>
     </div>
   </fieldset>
 
   <fieldset>
-    <div class="textfield">
-      <input type="email" name="fields[email]"  placeholder="{{ i18n "yourEmail" }}"/>
-    </div>
-  </fieldset>
-
-  <fieldset>
-    <div class="textfield">
-      <input type="text" name="fields[website]"  placeholder="{{ i18n "yourWebsite" }}"/>
-    </div>
+  <div class="textfield">
+    <textarea name="fields[comment]" type="text" placeholder="{{ i18n "useMarkdown" }}"></textarea>
+  </div>
   </fieldset>
 
   {{ if .Site.Params.staticman.recaptcha }}
