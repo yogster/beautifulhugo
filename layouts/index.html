@@ -36,15 +36,9 @@
 
               {{ if .Params.tags }}
                 <div class="blog-tags">
-<<<<<<< HEAD
                 {{ range .Params.tags }}
                   <a href="{{ $.Site.LanguagePrefix | absURL }}/tags/{{ . | urlize }}/">{{ . }}</a>&nbsp;
                 {{ end }}
-=======
-                  {{ range .Params.tags }}
-                    <a href="{{ $.Site.LanguagePrefix | absURL }}/tags/{{ . | urlize }}/">{{ . }}</a>&nbsp;
-                  {{ end }}
->>>>>>> origin/beautiful-jekyll-tags
                 </div>
               {{ end }}
             </article>
